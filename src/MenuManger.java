@@ -34,7 +34,9 @@ public class MenuManger {
 			System.out.print("assignment deadline(yyyy/mm/dd): ");
 			String assignmentDeadline = input.next();
 			
-			System.out.print(className+"==="+classProfessor+"==="+assignmentName+"==="+assignmentDeadline);
+			//입력값 체크
+			//System.out.print(className+"==="+classProfessor+"==="+assignmentName+"==="+assignmentDeadline);
+			
 			break;
 		
 		case 2:   //2. delete assignment
