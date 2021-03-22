@@ -24,47 +24,19 @@ public class MenuManger {
 		num = input.nextInt();
 		switch(num) {
 		case 1:   //1. add assignment
-			System.out.println("===assignment will be added===");
-			System.out.print("class name: ");
-			String className = input.next();
-			System.out.print("class professor: ");
-			String classProfessor = input.next();
-			System.out.print("assignment name: ");
-			String assignmentName = input.next();
-			System.out.print("assignment deadline(yyyy/mm/dd): ");
-			String assignmentDeadline = input.next();
-			
-			//입력값 체크
-			//System.out.print(className+"==="+classProfessor+"==="+assignmentName+"==="+assignmentDeadline);
-			
+			addAssignment();
 			break;
 		
 		case 2:   //2. delete assignment
-			System.out.print("assignment name: ");
-			String assignmentName2 = input.next();
-			
-//			while(true) {
-//				System.out.println("Are you sure you want to delete it? y/n");
-//				char yn = input.next().charAt(0);
-//				if(yn=='y') {
-//					System.out.println("delete the assignment");
-//					break;
-//				}
-//				else if(yn=='n') {
-//					System.out.println("don't delete the assignment");
-//					break;
-//				}
-//			}	
+			deleteAssignment();
 			break;
 			
 		case 3:   //3. edit assignment
-			System.out.print("assignment name: ");
-			String assignmentName3 = input.next();
+			editAssignment();
 			break;
 			
 		case 4:   //4. view assignment
-			System.out.print("assignment name: ");
-			String assignmentName4 = input.next();
+			viewAssignment();
 			break;
 			
 		case 5:   //5. show a menu
@@ -73,6 +45,68 @@ public class MenuManger {
 		}
 		
 		}
+	}
+	
+	public static void addAssignment() {
+
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("===assignment will be added===");
+		System.out.print("class name: ");
+		String className = input.next();
+		System.out.print("class professor: ");
+		String classProfessor = input.next();
+		System.out.print("assignment name: ");
+		String assignmentName = input.next();
+		System.out.print("assignment deadline(yyyy/mm/dd): ");
+		String assignmentDeadline = input.next();
+		
+		//입력값 체크
+		//System.out.print(className+"==="+classProfessor+"==="+assignmentName+"==="+assignmentDeadline);
+		
+	}
+	
+	
+	public static void deleteAssignment() {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("assignment name: ");
+		String assignmentName2 = input.next();
+		
+//		while(true) {
+//			System.out.println("Are you sure you want to delete it? y/n");
+//			char yn = input.next().charAt(0);
+//			if(yn=='y') {
+//				System.out.println("delete the assignment");
+//				break;
+//			}
+//			else if(yn=='n') {
+//				System.out.println("don't delete the assignment");
+//				break;
+//			}
+//		}	
+	}
+	
+	
+	public static void editAssignment() {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("assignment name: ");
+		String assignmentName3 = input.next();
+		
+	}
+	
+	
+	
+	public static void viewAssignment() {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("assignment name: ");
+		String assignmentName4 = input.next();
+		
 	}
 
 }
