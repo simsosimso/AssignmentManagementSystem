@@ -40,8 +40,6 @@ public class MenuManager {
 		case 4:   //4. view assignment
 			assignmentmanager.viewAssignment();
 			break;
-		
-		
 		}
 		
 		}

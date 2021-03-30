@@ -38,7 +38,7 @@ public class Assignment {
 		}
 		
 		
-		//deadline으로부터 몇시간 남았는지 알림
+		//deadline으로부터 몇시간 남았는지 알리는 method
 		public void printremainingtime() {
 			deadlineset = this.deadline.split("/");
 			
@@ -53,8 +53,6 @@ public class Assignment {
 			
 			long diffSec = (Deadcal.getTimeInMillis()-Nowcal.getTimeInMillis())/1000;
 			//System.out.println(diffSec);
-			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(diffSec);
 			
 			long d = diffSec / (24*60*60);
 			diffSec = diffSec % (24*60*60);
