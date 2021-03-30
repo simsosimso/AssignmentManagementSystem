@@ -60,8 +60,7 @@ public class AssignmentManager {
 		}
 		for(Assignment assi : assignments) {
 			if(assi.name.equals(assignmentName)) {
-				//assignment=null;
-
+		
 				System.out.println("1. assignment name");
 				System.out.println("2. class professor");
 				System.out.println("3. class name");
@@ -112,7 +111,7 @@ public class AssignmentManager {
 			}
 		}
 		for(Assignment assi : assignments) {
-			if(assignment.name.equals(assignmentName)) {
+			if(assi.name.equals(assignmentName)) {
 				System.out.println("===assignment information===");
 				assi.printInfo();
 				assi.printremainingtime();

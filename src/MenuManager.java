@@ -19,7 +19,6 @@ public class MenuManager {
 		System.out.println("3. edit assignment");
 		System.out.println("4. view assignment");
 		System.out.println("5. exit");
-		System.out.println("6. check remainning time");
 		System.out.print("Selcet one number between 1-6: ");
 		
 		//메뉴 입력
