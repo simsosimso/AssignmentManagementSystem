@@ -3,7 +3,9 @@ package assignment;
 import java.util.Scanner;
 
 public class PersonalAssignment extends Assignment {
-
+	
+	protected AssignmentKind kind = AssignmentKind.Personal;
+	
 	public void getUserInput(Scanner input) {
 		System.out.println("===assignment will be added===");
 		System.out.print("assignment name: ");
