@@ -2,31 +2,46 @@
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class AssignmentManager {
+import assignment.Assignment;
+import assignment.PersonalAssignment;
 
-	Assignment assignment;
+public class AssignmentManager {
+	
+	HashSet<Assignment> assignments = new HashSet<Assignment>();
 	Scanner input;	
 	//모든 assignment가 저장된 HashSet
-	HashSet<Assignment> assignments = new HashSet<Assignment>();
-
+	
 	AssignmentManager(Scanner input){
 		this.input = input;
 	}
 
 	public void addAssignment() {
 
-		assignment = new Assignment();
-		assignments.add(assignment);
-
-		System.out.println("===assignment will be added===");
-		System.out.print("assignment name: ");
-		assignment.name = input.next();
-		System.out.print("class professor: ");
-		assignment.professor = input.next();
-		System.out.print("class name: ");
-		assignment.classname = input.next();
-		System.out.print("assignment deadline(yyyy/mm/dd/hh/mm): ");
-		assignment.deadline = input.next();
+		
+		System.out.println("1 for University assignment");
+		System.out.println("2 for Personal assignment");
+		System.out.print("Select Student Kind between 1 and 2:");
+		int kind = 0;
+		Assignment assignment;
+		while(kind!=1 && kind !=2) {
+			kind = input.nextInt();
+			if (kind==1) {
+				assignment = new Assignment();
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+			}
+			else if(kind==2) {
+				assignment = new PersonalAssignment();
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+				
+			}
+			else {
+				System.out.print("Select Student Kind between 1 and 2:");	
+			}
+		}
 
 		//입력값 체크
 		//System.out.println(assignment.name+"==="+assignment.professor+"==="+assignment.classname+"==="+assignment.deadline);
@@ -41,10 +56,11 @@ public class AssignmentManager {
 			return;
 		}
 		for(Assignment assi : assignments) {
-			if(assi.name.equals(assignmentName)) {
+			if(assi.getName().equals(assignmentName)) {
 				assignments.remove(assi);
 				assi=null;
-				System.out.println("the assignment is deleted");
+				System.out.println("the assignment "+assignmentName +" is deleted");
+				break;
 			}
 		}
 	}
@@ -59,64 +75,69 @@ public class AssignmentManager {
 			return;
 		}
 		for(Assignment assi : assignments) {
-			if(assi.name.equals(assignmentName)) {
-		
-				System.out.println("1. assignment name");
-				System.out.println("2. class professor");
-				System.out.println("3. class name");
-				System.out.println("4. assignment deadline(yyyy/mm/dd/hh/mm)");
-				System.out.print("select what you want to change: ");
+			if(assi.getName().equals(assignmentName)) {
+				int num =-1;
+				while(num!=5) {
+					System.out.println("1. assignment name");
+					System.out.println("2. class professor");
+					System.out.println("3. class name");
+					System.out.println("4. assignment deadline(yyyy/mm/dd/hh/mm)");
+					System.out.println("5. exit");
+					System.out.print("select what you want to change: ");
 
-				//메뉴 입력
-				int num = input.nextInt();
-				System.out.print("change: ");
-				switch(num) {
-				case 1:  
-					assi.name = input.next();
-					break;
+					//메뉴 입력
+					num = input.nextInt();
+					switch(num) {
+					case 1:  
+						System.out.print("assignment name: ");
+						String name = input.next();
+						assi.setName(name);
+						break;
 
-				case 2:  
-					assi.professor = input.next();
-					break;
+					case 2:  
+						System.out.print("class professor: ");
+						String professor = input.next();
+						assi.setProfessor(professor);
+						break;
 
-				case 3:  
-					assi.classname = input.next();
-					break;
+					case 3:  
+						System.out.print("class name: ");
+						String classname = input.next();
+						assi.setClassname(classname);
+						break;
 
-				case 4:   
-					assi.deadline = input.next();
-					break;
-				}
-				System.out.println("the assignment to be eddited is "+assignmentName);
-			}
-		}
-	}
+					case 4:   
+						System.out.print("deadline: ");
+						String deadline = input.next();
+						assi.setDeadline(deadline);
+						break;
+					
+					}//switch
+				}//while
+				break;
+			}//if
+		}//for
+	}//method
 
 
 
-	public void viewAssignment() {
+	public void viewAssignments() {
 
-		System.out.print("assignment name(\"all\" if you want view all assignment): ");
-		String assignmentName = input.next();
-		if(assignments.isEmpty()) {
-			System.out.println("the assignment doesn't exist");
-			return;
-		}
-		if(assignmentName.equals("all")) {
-			for(Assignment assi : assignments) {
-				System.out.println("===assignment information===");
-				assi.printInfo();
-				assi.printremainingtime();
-				System.out.println();
-			}
-		}
+//		System.out.print("assignment name: ");
+//		String assignmentName = input.next();
+
+//		if(assignments.isEmpty()) {
+//			System.out.println("the assignment doesn't exist");
+//			return;
+//		}
+		System.out.println("# of registered students: "+assignments.size());
 		for(Assignment assi : assignments) {
-			if(assi.name.equals(assignmentName)) {
-				System.out.println("===assignment information===");
-				assi.printInfo();
-				assi.printremainingtime();
-			}
+			System.out.println("===assignment information===");
+			assi.printInfo();
+			assi.printremainingtime();
+			System.out.println();
 		}
+
 	}
 
 

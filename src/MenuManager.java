@@ -17,7 +17,7 @@ public class MenuManager {
 		System.out.println("1. add assignment");
 		System.out.println("2. delete assignment");
 		System.out.println("3. edit assignment");
-		System.out.println("4. view assignment");
+		System.out.println("4. view assignments");
 		System.out.println("5. exit");
 		System.out.print("Selcet one number between 1-6: ");
 		
@@ -37,7 +37,7 @@ public class MenuManager {
 			break;
 			
 		case 4:   //4. view assignment
-			assignmentmanager.viewAssignment();
+			assignmentmanager.viewAssignments();
 			break;
 		}
 		
