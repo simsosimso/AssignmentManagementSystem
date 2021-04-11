@@ -18,3 +18,4 @@ public class QuickAssignment extends Assignment {
 	}
 
 }
+

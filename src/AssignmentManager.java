@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import assignment.Assignment;
 import assignment.PersonalAssignment;
+import assignment.QuickAssignment;
 
 public class AssignmentManager {
 	
@@ -20,10 +21,11 @@ public class AssignmentManager {
 		
 		System.out.println("1 for University assignment");
 		System.out.println("2 for Personal assignment");
-		System.out.print("Select Student Kind between 1 and 2:");
+		System.out.println("3 for Quick assignment");
+		System.out.print("Select Student Kind 1~3:");
 		int kind = 0;
 		Assignment assignment;
-		while(kind!=1 && kind !=2) {
+		while(kind!=1 && kind !=2 && kind !=3) {
 			kind = input.nextInt();
 			if (kind==1) {
 				assignment = new Assignment();
@@ -38,8 +40,14 @@ public class AssignmentManager {
 				break;
 				
 			}
+			else if(kind==3) {
+				assignment = new QuickAssignment();
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+			}
 			else {
-				System.out.print("Select Student Kind between 1 and 2:");	
+				System.out.print("Select Student Kind 1~3:");	
 			}
 		}
 

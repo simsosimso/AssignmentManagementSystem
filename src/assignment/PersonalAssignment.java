@@ -22,7 +22,7 @@ public class PersonalAssignment extends Assignment {
 				this.setProfessor(professor);
 				break;
 			}
-			else if(answer == 'y'||answer == 'Y') {
+			else if(answer == 'n'||answer == 'N') {
 				this.setProfessor("");
 				break;
 			}
