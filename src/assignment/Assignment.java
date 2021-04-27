@@ -16,16 +16,22 @@ public class Assignment {
 		public Assignment() {
 		}
 		
+		public Assignment(AssignmentKind kind) {
+			this.kind = kind;
+		}
+		
 		public Assignment(String name,
 				String deadline) {
 			this.name= name;
 			this.deadline= deadline;
 		}
 
-		public Assignment(String name,
+		public Assignment(AssignmentKind kind,
+				String name,
 				String professor,
 				String classname,
 				String deadline) {
+			this.kind= kind;
 			this.name= name;
 			this.professor= professor;
 			this.classname= classname;
@@ -86,6 +92,20 @@ public class Assignment {
 
 		
 		public void printInfo(){
+			String akind = "none";
+			switch(this.kind) {
+			case University:
+				akind = "Univ.";
+				break;
+			case Personal:
+				akind = "Personal";
+				break;
+			case Quick:
+				akind = "Quick";
+			default:
+			}
+			
+			System.out.println("kind="+akind);
 			System.out.println("name="+name);
 			System.out.println("professor="+professor);
 			System.out.println("classname="+classname);

@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import assignment.Assignment;
+import assignment.AssignmentKind;
 import assignment.PersonalAssignment;
 import assignment.QuickAssignment;
 
@@ -28,20 +29,20 @@ public class AssignmentManager {
 		while(kind!=1 && kind !=2 && kind !=3) {
 			kind = input.nextInt();
 			if (kind==1) {
-				assignment = new Assignment();
+				assignment = new Assignment(AssignmentKind.University);
 				assignment.getUserInput(input);
 				assignments.add(assignment);
 				break;
 			}
 			else if(kind==2) {
-				assignment = new PersonalAssignment();
+				assignment = new PersonalAssignment(AssignmentKind.Personal);
 				assignment.getUserInput(input);
 				assignments.add(assignment);
 				break;
 				
 			}
 			else if(kind==3) {
-				assignment = new QuickAssignment();
+				assignment = new QuickAssignment(AssignmentKind.Quick);
 				assignment.getUserInput(input);
 				assignments.add(assignment);
 				break;
