@@ -3,13 +3,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 import assignment.Assignment;
+import assignment.AssignmentInput;
 import assignment.AssignmentKind;
 import assignment.PersonalAssignment;
 import assignment.QuickAssignment;
+import assignment.UniversityAssignment;
 
 public class AssignmentManager {
 	
-	HashSet<Assignment> assignments = new HashSet<Assignment>();
+	HashSet<AssignmentInput> assignments = new HashSet<AssignmentInput>();
 	Scanner input;	
 	//모든 assignment가 저장된 HashSet
 	
@@ -25,26 +27,26 @@ public class AssignmentManager {
 		System.out.println("3 for Quick assignment");
 		System.out.print("Select Student Kind 1~3:");
 		int kind = 0;
-		Assignment assignment;
+		AssignmentInput assignmentInput;
 		while(kind!=1 && kind !=2 && kind !=3) {
 			kind = input.nextInt();
 			if (kind==1) {
-				assignment = new Assignment(AssignmentKind.University);
-				assignment.getUserInput(input);
-				assignments.add(assignment);
+				assignmentInput = new UniversityAssignment(AssignmentKind.University);
+				assignmentInput.getUserInput(input);
+				assignments.add(assignmentInput);
 				break;
 			}
 			else if(kind==2) {
-				assignment = new PersonalAssignment(AssignmentKind.Personal);
-				assignment.getUserInput(input);
-				assignments.add(assignment);
+				assignmentInput = new PersonalAssignment(AssignmentKind.Personal);
+				assignmentInput.getUserInput(input);
+				assignments.add(assignmentInput);
 				break;
 				
 			}
 			else if(kind==3) {
-				assignment = new QuickAssignment(AssignmentKind.Quick);
-				assignment.getUserInput(input);
-				assignments.add(assignment);
+				assignmentInput = new QuickAssignment(AssignmentKind.Quick);
+				assignmentInput.getUserInput(input);
+				assignments.add(assignmentInput);
 				break;
 			}
 			else {
@@ -64,7 +66,7 @@ public class AssignmentManager {
 			System.out.println("the assignment has not been resistered");
 			return;
 		}
-		for(Assignment assi : assignments) {
+		for(AssignmentInput assi : assignments) {
 			if(assi.getName().equals(assignmentName)) {
 				assignments.remove(assi);
 				assi=null;
@@ -83,7 +85,7 @@ public class AssignmentManager {
 			System.out.println("the assignment doesn't exist");
 			return;
 		}
-		for(Assignment assi : assignments) {
+		for(AssignmentInput assi : assignments) {
 			if(assi.getName().equals(assignmentName)) {
 				int num =-1;
 				while(num!=5) {
@@ -140,7 +142,7 @@ public class AssignmentManager {
 //			return;
 //		}
 		System.out.println("# of registered students: "+assignments.size());
-		for(Assignment assi : assignments) {
+		for(AssignmentInput assi : assignments) {
 			System.out.println("===assignment information===");
 			assi.printInfo();
 			assi.printremainingtime();

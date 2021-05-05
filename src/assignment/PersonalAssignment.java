@@ -2,7 +2,7 @@ package assignment;
 
 import java.util.Scanner;
 
-public class PersonalAssignment extends Assignment {
+public class PersonalAssignment extends Assignment implements AssignmentInput{
 	
 	protected AssignmentKind kind = AssignmentKind.Personal;
 	protected String rival;
