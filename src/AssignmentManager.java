@@ -1,19 +1,24 @@
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import assignment.Assignment;
 import assignment.AssignmentInput;
 import assignment.AssignmentKind;
 import assignment.PersonalAssignment;
 import assignment.QuickAssignment;
 import assignment.UniversityAssignment;
 
-public class AssignmentManager {
+public class AssignmentManager implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5380524482107709002L;
+	
 	HashSet<AssignmentInput> assignments = new HashSet<AssignmentInput>();
-	Scanner input;	
+	transient Scanner input;	
 	//모든 assignment가 저장된 HashSet
 
 	AssignmentManager(Scanner input){

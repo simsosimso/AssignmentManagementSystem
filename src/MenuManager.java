@@ -1,5 +1,11 @@
 //MenuManager.java
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,8 +18,12 @@ public class MenuManager {
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		AssignmentManager assignmentmanager = new AssignmentManager(input);
+		AssignmentManager assignmentmanager = getObject("assignmentmanager.ser");
+		if(assignmentmanager==null) {
+			assignmentmanager = new AssignmentManager(input);
+		}
 		selectMenu(input, assignmentmanager);
+		putObject(assignmentmanager,"assignmentmanager.ser");
 	}
 
 	public static void selectMenu(Scanner input, AssignmentManager assignmentmanager) {
@@ -71,5 +81,46 @@ public class MenuManager {
 		System.out.print("Selcet one number between 1-5: ");
 
 	}
+	
+	public static AssignmentManager getObject(String fileName) {
+		AssignmentManager assignmentmanager = null;
+		try {
+			FileInputStream file = new FileInputStream(fileName);
+			ObjectInputStream in = new ObjectInputStream(file);
+			
+			assignmentmanager = (AssignmentManager) in.readObject();
+			
+			in.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			return assignmentmanager;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return assignmentmanager;
+	}
 
+	
+	public static void putObject(AssignmentManager assignmentmanager, String fileName) {
+		try {
+			FileOutputStream file = new FileOutputStream(fileName);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			out.writeObject(assignmentmanager);
+			
+			out.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

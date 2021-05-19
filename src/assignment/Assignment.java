@@ -1,4 +1,5 @@
 package assignment;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -6,8 +7,13 @@ import java.util.Scanner;
 
 import exception.DeadlineFormatException;
 
-public abstract class Assignment implements AssignmentInput{
+public abstract class Assignment implements AssignmentInput, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3957395435530031059L;
+	
 	protected AssignmentKind kind = AssignmentKind.University;
 	protected String name;
 	protected String professor;
