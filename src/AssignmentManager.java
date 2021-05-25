@@ -146,7 +146,7 @@ public class AssignmentManager implements Serializable{
 
 
 	public void viewAssignments() {
-		System.out.println("# of registered students: "+assignments.size());
+		System.out.println("#registered students: "+assignments.size());
 		for(AssignmentInput assi : assignments) {
 			System.out.println("===assignment information===");
 			assi.printInfo();
