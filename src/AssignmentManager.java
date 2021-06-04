@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import assignment.Assignment;
 import assignment.AssignmentInput;
 import assignment.AssignmentKind;
 import assignment.PersonalAssignment;
@@ -155,7 +158,18 @@ public class AssignmentManager implements Serializable{
 		}
 	}
 
-
+	public int size() {
+		return assignments.size();
+	}
+	
+	public AssignmentInput get(int index) {
+		int i=0;
+		for(AssignmentInput assi : assignments) {
+			if(i++==index) return assi;
+		}
+		return null;
+		
+	}
 
 	public void showEditMenu() {
 		System.out.println("1. assignment name");

@@ -12,9 +12,15 @@ public interface AssignmentInput {
 	
 	public void setName(String name);
 	
+	public String getProfessor();
+	
 	public void setProfessor(String professor);
 	
+	public String getClassname();
+	
 	public void setClassname(String classname);
+	
+	public String getDeadline();
 	
 	public void setDeadline(String deadline) throws DeadlineFormatException;
 	
