@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import assignment.AssignmentInput;
+import manager.AssignmentManager;
 
 public class AssignmentViewer extends JPanel {
 	

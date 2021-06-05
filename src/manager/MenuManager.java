@@ -1,3 +1,4 @@
+package manager;
 //MenuManager.java
 
 import java.io.FileInputStream;
@@ -27,7 +28,7 @@ public class MenuManager {
 			assignmentmanager.input = input;
 		}
 		
-		WindowFrame frame = new WindowFrame();
+		WindowFrame frame = new WindowFrame(assignmentmanager);
 		selectMenu(input, assignmentmanager);
 		putObject(assignmentmanager,"assignmentmanager.ser");
 	}

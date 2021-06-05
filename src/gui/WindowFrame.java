@@ -3,8 +3,10 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.AssignmentManager;
+
 public class WindowFrame extends JFrame{
-	
+
 	AssignmentManager assignmentmanager;
 	
 	MenuSelection menuselection;

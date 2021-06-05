@@ -1,10 +1,9 @@
+package manager;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import assignment.Assignment;
 import assignment.AssignmentInput;
@@ -20,7 +19,7 @@ public class AssignmentManager implements Serializable{
 	 */
 	private static final long serialVersionUID = 5380524482107709002L;
 	
-	HashSet<AssignmentInput> assignments = new HashSet<AssignmentInput>();
+	ArrayList<AssignmentInput> assignments = new ArrayList<AssignmentInput>();
 	transient Scanner input;	
 	//모든 assignment가 저장된 HashSet
 
@@ -163,11 +162,7 @@ public class AssignmentManager implements Serializable{
 	}
 	
 	public AssignmentInput get(int index) {
-		int i=0;
-		for(AssignmentInput assi : assignments) {
-			if(i++==index) return assi;
-		}
-		return null;
+		return assignments.get(index);
 		
 	}
 
