@@ -27,6 +27,18 @@ public class AssignmentManager implements Serializable{
 		this.input = input;
 	}
 
+	public void addAssignment(
+			String assingmentname, String classname,String professor,String deadline) {
+		
+		AssignmentInput assignmentInput = new UniversityAssignment(AssignmentKind.University);
+		assignmentInput.getUserInput(input);
+		assignments.add(assignmentInput);
+	}
+	
+	public void addAssignment(AssignmentInput assignmentInput) {
+		assignments.add(assignmentInput);
+	}
+	
 	public void addAssignment() {
 		int kind = 0;
 		AssignmentInput assignmentInput;

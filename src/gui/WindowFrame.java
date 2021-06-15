@@ -22,7 +22,7 @@ public class WindowFrame extends JFrame{
 		
 		this.assignmentmanager = assignmentmanager;
 		this.menuselection = new MenuSelection(this);
-		this.assignmentadder = new AssignmentAdder(this);
+		this.assignmentadder = new AssignmentAdder(this, this.assignmentmanager);
 		this.assignmentviewer = new AssignmentViewer(this, this.assignmentmanager);
 		
 		

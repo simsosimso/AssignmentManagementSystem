@@ -17,6 +17,36 @@ public class AssignmentViewer extends JPanel {
 	
 	AssignmentManager assignmentmanager;
 
+	public AssignmentManager getAssignmentmanager() {
+		return assignmentmanager;
+	}
+
+	public void setAssignmentmanager(AssignmentManager assignmentmanager) {
+		this.assignmentmanager = assignmentmanager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Assignment Name");
+		model.addColumn("Class Name");
+		model.addColumn("Professor");
+		model.addColumn("Deadline");
+		
+		for(int i=0; i<assignmentmanager.size(); i++) {
+			Vector row = new Vector();
+			AssignmentInput ai = assignmentmanager.get(i);
+			row.add(ai.getName());
+			row.add(ai.getClassname());
+			row.add(ai.getProfessor());
+			row.add(ai.getDeadline());
+			model.addRow(row);
+		}
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp);
+	}
+
 	public AssignmentViewer(WindowFrame frame, AssignmentManager assignmentmanager) {
 		
 		this.frame = frame;

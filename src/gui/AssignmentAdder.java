@@ -7,13 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import event.AssignmentAddCancelListener;
+import event.AssignmentAddListener;
+import manager.AssignmentManager;
+
 public class AssignmentAdder extends JPanel{
 	
 	WindowFrame frame;
+	AssignmentManager assignmentmanager;
 
-	public AssignmentAdder(WindowFrame frame) {
+	public AssignmentAdder(WindowFrame frame, AssignmentManager assignmentmanager) {
 		
 		this.frame = frame;
+		this.assignmentmanager = assignmentmanager;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -42,8 +48,15 @@ public class AssignmentAdder extends JPanel{
 		panel.add(labelDeadline);
 		panel.add(fieldDeadline);
 		
-		panel.add(new JButton("save"));
-		panel.add(new JButton("cancel"));
+		JButton saveButton = new JButton("save");
+		saveButton.addActionListener(new AssignmentAddListener(
+				fieldAName, fieldCName, fieldProfessor, fieldDeadline, assignmentmanager));
+		
+		JButton cancelButton = new JButton("cancel");
+		cancelButton.addActionListener(new AssignmentAddCancelListener(frame));
+		
+		panel.add(saveButton);
+		panel.add(cancelButton);
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 	
